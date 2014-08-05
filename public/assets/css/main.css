@@ -1,0 +1,197 @@
+
+body {
+  border-top: 5px solid #7a62d3;
+}
+footer .well {
+  margin-bottom: 0px;
+}
+footer a, footer a:hover {
+  color: white;
+}
+header {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+header h3 {
+  font-weight: bold;
+  font-size: 20px;
+}
+header .input-group-addon {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+#footer {
+  background-color: #888;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: #fff;
+}
+.aum {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.aum:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+.carousel {
+  margin-bottom: 20px;
+  border-bottom: 5px solid #6246cb;
+}
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+  width: 100%;
+}
+.dropdown-menu>li>a.hover-warning:hover, .dropdown-menu>li>a.hover-warning:focus {
+  background-color: #ee7436;
+}
+.dropdown-menu>li>a.hover-info:hover, .dropdown-menu>li>a.hover-info:focus {
+  background-color: #5b94de;
+}
+.dropdown-menu>li>a.hover-success:hover, .dropdown-menu>li>a.hover-success:focus {
+  background-color: #6bb85c;
+}
+.dropdown-menu>li>a.hover-primary:hover, .dropdown-menu>li>a.hover-primary:focus {
+  background-color: #7a62d3;
+}
+.dropdown-menu>li>a.hover-muted:hover, .dropdown-menu>li>a.hover-muted:focus {
+  background-color: #a2a2a2;
+}
+.dropdown-menu>li>a.hover-danger:hover, .dropdown-menu>li>a.hover-danger:focus {
+  background-color: #d94f79;
+}
+.navbar-collapse {
+  margin: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.navbar-nav>li {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #e5e5e5;
+}
+.navbar-default {
+  border: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+  box-shadow: none;
+  background: -moz-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f2f2f2));
+  background: -webkit-linear-gradient(top, #ffffff 0%,#f2f2f2 100%);
+  background: -o-linear-gradient(top, #ffffff 0%,#f2f2f2 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%,#f2f2f2 100%);
+  background: linear-gradient(to bottom, #ffffff 0%,#f2f2f2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 );
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+	background-color: #7a62d3;
+  color: white;
+}
+.navbar-default .navbar-nav>.open>a .caret, .navbar-default .navbar-nav>.open>a:hover .caret, .navbar-default .navbar-nav>.open>a:focus .caret, .navbar-default .navbar-nav>.dropdown>a:hover .caret, .navbar-default .navbar-nav>.dropdown>a:focus .caret {
+  border-top-color: white;
+  border-bottom-color: white;
+}
+.page-header {
+  margin-top: 0px;
+}
+.panel .panel-body img {
+  width: 100%;
+}
+.panel-grey {
+  border-top-color: #a2a2a2;
+}
+.social {
+	margin-top: 5px;
+}
+.social a {
+	margin: 5px;
+}
+.img-banner {
+  display: inline-block;
+  vertical-align: top;
+  width: 10%;
+}
+.txt-banner {
+  display: inline-block;
+  vertical-align: top;
+  width: 87%;
+}
+.txt-banner h3{  
+  font-size: 15px;  
+  font-family: 'Segoe UI','Ubuntu',sans-serif;
+  margin-top: 15px;
+}
+.txt-banner h4 {
+  font-size: 14px;
+  font-family: 'Segoe UI','Ubuntu',sans-serif;
+  color: #666;
+}
+.well {
+  background-color: #7a62d3;
+}
+
+@media (min-width: 768px) {
+  .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    margin-bottom: -5px;
+  }
+
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+
+  .dropdown-menu {
+   text-align: left;
+ }
+ .navbar-nav>li>a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+}
+
+@media (max-width: 767px) {
+  header h3 {
+    font-size: 1.5em;
+  }
+  header h4 {
+    font-size: 1em;
+  }
+  .img-banner {
+    width: 15%;
+  }
+  .txt-banner {
+    width: 83%;
+  }
+}
+
+@media (max-width: 640px) {
+  header h3 {
+    font-size: 1.4em;
+  }
+  header h4 {
+    font-size: 0.9em;
+  }
+  .img-banner {
+    width: 20%;
+  }
+  .txt-banner {
+    width: 78%;
+  }
+}
+
+@media (max-width: 480px) {
+  header h3 {
+    font-size: 1.3em;
+  }
+  header h4 {
+    font-size: 0.8em;
+  }
+  .img-banner {
+    width: 28%;
+  }
+  .txt-banner {
+    width: 70%;
+  }
+
+}

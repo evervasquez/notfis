@@ -1,4 +1,4 @@
-<?php namespace bscunsm\Entities;
+<?php namespace notfis\Entities;
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
@@ -6,8 +6,6 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class User extends \Eloquent implements UserInterface, RemindableInterface
 {
 
-
-    protected $table = 'usuarios';
     protected $softDelete = true;
 
     protected $fillable = [
@@ -23,7 +21,7 @@ class User extends \Eloquent implements UserInterface, RemindableInterface
      *
      * @var array
      */
-    protected $hidden = array('clave', 'remember_token');
+    protected $hidden = array('password', 'remember_token');
 
     /**
      * Get the unique identifier for the user.

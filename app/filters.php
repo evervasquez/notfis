@@ -40,39 +40,18 @@ Route::filter('auth.basic', function () {
     return Auth::basic("usuario");
 });
 
+Route::filter('android.gcm',function($route, $request, $response){
 
-Route::filter('perfil', function () {
+    /*verificamos que venga de una respuesta json (Response::json())
+     y que exista un registration_id en el input */
 
-    if (Auth::check()) {
+    if($response instanceof \Illuminate\Http\JsonResponse
+        && Input::has('registration_id')){
 
-        $urlfull = URL::current();
-        $modulo = explode("/", $urlfull);
+        // Obtenemos el contenido de la respuesta
+        $content = json_decode($response->getContent());
 
-        //dd($modulo);
-        $perfil = Auth::user()->idperfil;
-        $permisos = DB::table('permisos')
-            ->join('modulos as m', 'permisos.idmodulo', '=', 'm.id')
-            ->whereNull('permisos.deleted_at')
-            ->where('permisos.idperfil', '=', $perfil)
-            ->where('permisos.idmodulo', '<>', 1)
-            ->select('permisos.idmodulo', 'm.url as modulo')
-            ->get();
-
-        //dd($permisos);
-        $existe = false;
-        foreach ($permisos as $permiso) {
-
-            if ($permiso->modulo == $modulo[3]) {
-                $existe = true;
-            }
-        }
-
-        if ($existe == false) {
-            return Redirect::to('error');
-        }
-    } else {
-        return View::make('login');
-
+        AndroidGcm::addRegistrationId(Input::get('registration_id'), $content->user->id);
     }
 });
 

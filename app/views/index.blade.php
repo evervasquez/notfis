@@ -1,99 +1,176 @@
-<div class="box">
-    <div class="box-header">
-        <h2><i class="fa fa-edit"></i>X-editable</h2>
-        <div class="box-icon">
-            <a href="form-x-editable.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
-            <a href="form-x-editable.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-            <a href="form-x-editable.html#" class="btn-close"><i class="fa fa-times"></i></a>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <title>FISI - UNSM-T :: Facultad de Ingenieria de Sistemas e Informática de la Universidad Nacional de San Martin - Tarapoto</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url() ?>assets/img/favicon.png">
+    <link rel="shortcut icon" href="{{ HTML::url('assets/img/favicon.ico') }}">
+
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url() ?>assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url() ?>assets/css/main.css" rel="stylesheet" />
+    <script type="application/javascript">
+        var base_url = '<?php echo base_url() ?>';
+    </script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row" style="vertical-align: middle">
+            <div class="col-md-10">
+                <a href="<?php echo base_url() ?>">
+                    <div class="img-banner">
+                        <img src="<?php echo base_url() ?>assets/img/logo.jpg" alt="Logo FISI" width="70px" />
+                    </div>
+                    <div class="txt-banner">
+                        <h3>FACULTAD DE INGENIERÍA DE SISTEMAS E INFORMÁTICA</h3>
+                        <h4>Universidad Nacional de San Martin - Tarapoto</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 text-right">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-6">
+                        <div class="input-group">
+                              <span class="input-group-addon">
+                                  <i class="fa fa-search"></i>
+                              </span>
+                            <input type="text" class="form-control input-sm" placeholder="Buscar...">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-6">
+                        <div class="social">
+                            <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+                                <span class="fa fa-youtube fa-2x text-danger aum"></span>
+                            </a>
+                            <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+                                <span class="fa fa-facebook-square fa-2x text-info aum"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="box-content">
-
-        <div style="float: right; margin-bottom: 10px">
-            <label style="display: inline-block; margin-right: 50px"><input type="checkbox" id="autoopen" style="vertical-align: baseline">&nbsp;auto-open next field</label>
-            <button id="enable" class="btn btn-default">enable / disable</button>
+</header>
+<div class="container">
+    <div class="navbar-default navbar-static-top">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".header-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-        <p>Click to edit</p>
-        <table id="user" class="table table-bordered table-striped" style="clear: both">
-            <tbody>
-                <tr>
-                    <td width="35%">Simple text field</td>
-                    <td width="65%"><a href="form-x-editable.html#" id="username" data-type="text" data-pk="1" data-original-title="Enter username" class="editable editable-click">superuser</a></td>
-                </tr>
-                <tr>
-                    <td>Empty text field, required</td>
-                    <td><a href="form-x-editable.html#" id="firstname" data-type="text" data-pk="1" data-placement="right" data-placeholder="Required" data-original-title="Enter your firstname" class="editable editable-click editable-empty">Empty</a></td>
-                </tr>
-                <tr>
-                    <td>Select, local array, custom display</td>
-                    <td><a href="form-x-editable.html#" id="sex" data-type="select" data-pk="1" data-value="" data-original-title="Select sex" class="editable editable-click" style="color: rgb(128, 128, 128);">not selected</a></td>
-                </tr>
-                <tr>
-                    <td>Select, remote array, no buttons</td>
-                    <td><a href="form-x-editable.html#" id="group" data-type="select" data-pk="1" data-value="5" data-source="/groups" data-original-title="Select group" class="editable editable-click">Admin</a></td>
-                </tr>
-                <tr>
-                    <td>Select, error while loading</td>
-                    <td><a href="form-x-editable.html#" id="status" data-type="select" data-pk="1" data-value="0" data-source="/status" data-original-title="Select status" class="editable editable-click">Active</a></td>
-                </tr>
-
-                <tr>
-                    <td>Datepicker</td>
-                    <td>
-
-                        <span class="notready">not implemented for Bootstrap 3 yet</span>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>Combodate (date)</td>
-                    <td><a href="form-x-editable.html#" id="dob" data-type="combodate" data-value="1984-05-15" data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1" data-original-title="Select Date of birth" class="editable editable-click">15/05/1984</a></td>
-                </tr>
-                <tr>
-                    <td>Combodate (datetime)</td>
-                    <td><a href="form-x-editable.html#" id="event" data-type="combodate" data-template="D MMM YYYY  HH:mm" data-format="YYYY-MM-DD HH:mm" data-viewformat="MMM D, YYYY, HH:mm" data-pk="1" data-original-title="Setup event date and time" class="editable editable-click editable-empty">Empty</a></td>
-                </tr>
-
-
-
-                <tr>
-                    <td>Textarea, buttons below. Submit by <i>ctrl+enter</i></td>
-                    <td><a href="form-x-editable.html#" id="comments" data-type="textarea" data-pk="1" data-placeholder="Your comments here..." data-original-title="Enter comments" class="editable editable-pre-wrapped editable-click">awesome
-                            user!</a></td>
-                </tr>
-
-
-
-
-                <tr>
-                    <td>Twitter typeahead.js</td>
-                    <td><a href="form-x-editable.html#" id="state2" data-type="typeaheadjs" data-pk="1" data-placement="right" data-original-title="Start typing State.." class="editable editable-click">California</a></td>
-                </tr>
-
-
-                <tr>
-                    <td>Checklist</td>
-                    <td><a href="form-x-editable.html#" id="fruits" data-type="checklist" data-value="2,3" data-original-title="Select fruits" class="editable editable-click">peach<br>apple</a></td>
-                </tr>
-
-                <tr>
-                    <td>Select2 (tags mode)</td>
-                    <td><a href="form-x-editable.html#" id="tags" data-type="select2" data-pk="1" data-original-title="Enter tags" class="editable editable-click">html, javascript</a></td>
-                </tr>
-
-                <tr>
-                    <td>Select2 (dropdown mode)</td>
-                    <td><a href="form-x-editable.html#" id="country" data-type="select2" data-pk="1" data-value="BS" data-original-title="Select country" class="editable editable-click">Bahamas</a></td>
-                </tr>
-
-                <tr>
-                    <td>Custom input, several fields</td>
-                    <td><a href="form-x-editable.html#" id="address" data-type="address" data-pk="1" data-original-title="Please, fill address" class="editable editable-click"><b>Moscow</b>, Lenina st., bld. 12</a></td>
-                </tr>
-
-
-            </tbody>
-        </table>
-
+        <nav class="collapse navbar-collapse header-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                        <span class="fa fa-users"></span>
+                        Nosotros
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?php echo base_url() ?>nosotros/autoridades">Autoridades</a></li>
+                        <li><a href="#">Misión</a></li>
+                        <li><a href="#">Visión</a></li>
+                        <li><a href="#">Objetivos</a></li>
+                        <li><a href="#">Organigrama</a></li>
+                        <li><a href="#">Comisiones</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-list-alt"></span>
+                        Noticias
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-calendar"></span>
+                        Eventos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-camera"></span>
+                        Galería
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-phone"></span>
+                        Contáctenos
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
+<?php include_once $contenido ?>
+<footer>
+    <div class="well">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <h3><i class="fa fa-users"></i> Nosotros</h3>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Autoridades</a></p>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Misión</a></p>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Visión</a></p>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Objetivos</a></p>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Organigrama</a></p>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Comisiones</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h3><i class="fa fa-graduation-cap"></i> Escuela</h3>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Escuela Academica Profesional de Ingenieria de Sistemas e Informática</a></p>
+                    <h3><i class="fa fa-laptop"></i> Investigación</h3>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Instituto de Investigación</a></p>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Software y Toma de Decisiones</a></p>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Redes de computadoras</a></p>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Inteligencia Artificial</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h3><i class="fa fa-desktop"></i> INTECI</h3>
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Cursos</a></p>
+                    <h3><i class="fa fa-calendar"></i> Eventos</h3>
+                    <h3><i class="fa fa-camera"></i> Galeria</h3>
+                    <h3><i class="fa fa-envelope"></i> Contáctenos</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fa fa-map-marker"></i> Estamos Ubicados en:</h3>
+                    <p>Jr. Amorarca #315 - Morales - San Martin - Perú</p>
+                    <p><i class="fa fa-phone"></i> 52 1402 - 52 5987 - 52 4074</p>
+                    <h3>Busquenos en la Redes Sociales</h3>
+                    <div class="social text-center">
+                        <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+                            <span class="fa fa-youtube fa-5x aum"></span>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+                            <span class="fa fa-facebook-square fa-5x aum"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container text-center">
+            <i class="fa fa-flag"></i>
+            Facultad de Ingenieria de Sistemas e Informática<br/>
+            Universidad Nacional de San Martín<br/>
+            2014
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/bootstrap-hover-dropdown.min.js"></script>
+</body>
+</html>
