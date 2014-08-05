@@ -3,20 +3,22 @@
 <head>
     <meta charset="utf-8"/>
 
-    <title>FISI - UNSM-T :: Facultad de Ingenieria de Sistemas e Informática de la Universidad Nacional de San Martin - Tarapoto</title>
+    <title>FISI - UNSM-T :: Facultad de Ingenieria de Sistemas e Informática de la Universidad Nacional de San Martin -
+        Tarapoto</title>
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url() ?>assets/img/favicon.png">
-    <link rel="shortcut icon" href="{{ HTML::url('assets/img/favicon.ico') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}">
 
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width"/>
 
-    <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="<?php echo base_url() ?>assets/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="<?php echo base_url() ?>assets/css/main.css" rel="stylesheet" />
+    {{ HTML::style('assets/css/bootstrap.min.css'); }}
+    {{ HTML::style('assets/css/font-awesome.min.css'); }}
+    {{ HTML::style('assets/css/main.css'); }}
+
     <script type="application/javascript">
-        var base_url = '<?php echo base_url() ?>';
+        var base_url = '/';
     </script>
 </head>
 <body>
@@ -24,9 +26,9 @@
     <div class="container">
         <div class="row" style="vertical-align: middle">
             <div class="col-md-10">
-                <a href="<?php echo base_url() ?>">
+                <a href="./">
                     <div class="img-banner">
-                        <img src="<?php echo base_url() ?>assets/img/logo.jpg" alt="Logo FISI" width="70px" />
+                        {{ HTML::image('assets/img/logo.jpg','Logo FISI',array('width' => '70px')) }}
                     </div>
                     <div class="txt-banner">
                         <h3>FACULTAD DE INGENIERÍA DE SISTEMAS E INFORMÁTICA</h3>
@@ -77,7 +79,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo base_url() ?>nosotros/autoridades">Autoridades</a></li>
+                        <li><a href="./nosotros/autoridades">Autoridades</a></li>
                         <li><a href="#">Misión</a></li>
                         <li><a href="#">Visión</a></li>
                         <li><a href="#">Objetivos</a></li>
@@ -113,41 +115,64 @@
         </nav>
     </div>
 </div>
-<?php include_once $contenido ?>
+
+@yield('content')
+
 <footer>
     <div class="well">
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
                     <h3><i class="fa fa-users"></i> Nosotros</h3>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Autoridades</a></p>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Misión</a></p>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Visión</a></p>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Objetivos</a></p>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Organigrama</a></p>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Comisiones</a></p>
                 </div>
                 <div class="col-md-3">
                     <h3><i class="fa fa-graduation-cap"></i> Escuela</h3>
-                    <p><a href="#"><i class="fa fa-chevron-right"></i> Escuela Academica Profesional de Ingenieria de Sistemas e Informática</a></p>
+
+                    <p><a href="#"><i class="fa fa-chevron-right"></i> Escuela Academica Profesional de Ingenieria de
+                            Sistemas e Informática</a></p>
+
                     <h3><i class="fa fa-laptop"></i> Investigación</h3>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Instituto de Investigación</a></p>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Software y Toma de Decisiones</a></p>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Redes de computadoras</a></p>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Inteligencia Artificial</a></p>
                 </div>
                 <div class="col-md-3">
                     <h3><i class="fa fa-desktop"></i> INTECI</h3>
+
                     <p><a href="#"><i class="fa fa-chevron-right"></i> Cursos</a></p>
+
                     <h3><i class="fa fa-calendar"></i> Eventos</h3>
+
                     <h3><i class="fa fa-camera"></i> Galeria</h3>
+
                     <h3><i class="fa fa-envelope"></i> Contáctenos</h3>
                 </div>
                 <div class="col-md-4">
                     <h3><i class="fa fa-map-marker"></i> Estamos Ubicados en:</h3>
+
                     <p>Jr. Amorarca #315 - Morales - San Martin - Perú</p>
+
                     <p><i class="fa fa-phone"></i> 52 1402 - 52 5987 - 52 4074</p>
+
                     <h3>Busquenos en la Redes Sociales</h3>
+
                     <div class="social text-center">
                         <a href="https://www.youtube.com/" target="_blank" title="YouTube">
                             <span class="fa fa-youtube fa-5x aum"></span>
@@ -169,8 +194,8 @@
         </div>
     </div>
 </footer>
-<script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url() ?>assets/js/bootstrap-hover-dropdown.min.js"></script>
+{{ HTML::script('assets/js/jquery.min.js') }}
+{{ HTML::script('assets/js/bootstrap.min.js') }}
+{{ HTML::script('assets/js/bootstrap-hover-dropdown.min.js') }}
 </body>
 </html>

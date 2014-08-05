@@ -1,7 +1,4 @@
 <?php
 
-//Route::get('/', ['as' => 'hello', 'uses' => 'PerfilesController@getPerfiles']);
 
-Route::get('/', function(){
-    return View::make('index');
-});
+Route::get('/', ['as' => 'index', 'uses' => 'WebsController@index']);
