@@ -8,12 +8,11 @@ class WebsController extends \BaseController {
         return View::make('webs/index');
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /webs/create
-	 *
-	 * @return Response
-	 */
+	public function autoridades()
+    {
+        return View::make('webs/autoridades');
+    }
+
 	public function create()
 	{
 		//

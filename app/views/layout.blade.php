@@ -79,7 +79,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="./nosotros/autoridades">Autoridades</a></li>
+                        <li><a href="./autoridades">Autoridades</a></li>
                         <li><a href="#">Misión</a></li>
                         <li><a href="#">Visión</a></li>
                         <li><a href="#">Objetivos</a></li>
