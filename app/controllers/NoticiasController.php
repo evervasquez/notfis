@@ -15,7 +15,8 @@ class NoticiasController extends \BaseController {
 	 */
 	public function index()
 	{
-		return $this->noticiaRepo->selectAll();
+		$data['noticias'] = $this->noticiaRepo->selectAll();
+		return $data;
 	}
 
 	/**
