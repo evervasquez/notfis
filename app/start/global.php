@@ -78,5 +78,8 @@ App::down(function()
 |
 */
 
+define("GOOGLE_API_KEY", "AIzaSyBeDxdEE-R6yB_FHRb5i1qNjTXHByOYxoY");
+define("DS", DIRECTORY_SEPARATOR);
+
 require app_path().'/filters.php';
 require app_path().'/config/validators.php';

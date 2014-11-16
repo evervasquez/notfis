@@ -1,92 +1,72 @@
 <?php
-use bscunsm\Repositories\NoticiaRepositorie;
-class NoticiasController extends \BaseController {
+use notfis\Repositories\NoticiaRepositorie;
+use notfis\Repositories\UserRepositorie;
+class NoticiasController extends \BaseController
+{
     protected $noticiaRepo;
+    protected $userRepo;
 
-    public function __construct(NoticiaRepositorie $noticiaRepositorie)
+    public function __construct(NoticiaRepositorie $noticiaRepositorie, UserRepositorie $userRepositorie)
     {
         $this->noticiaRepo = $noticiaRepositorie;
+        $this->userRepo = $userRepositorie;
     }
-	/**
-	 * Display a listing of the resource.
-	 * GET /noticias
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		$data['noticias'] = $this->noticiaRepo->selectAll();
-		return $data;
-	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /noticias/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+    public function index()
+    {
+        $data['noticias'] = $this->noticiaRepo->selectAll();
+        return $data;
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /noticias
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
 
-	/**
-	 * Display the specified resource.
-	 * GET /noticias/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+    public function postNoticia()
+    {
+        $datos = Input::all();
 
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /noticias/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+        $file = Input::file('imagen');
 
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /noticias/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+        $ruta = DS . 'assets' . DS . 'img' . DS . 'notiImages';
 
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /noticias/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+        $destinationPath = public_path() . sprintf($ruta, str_random(8));
 
+        $file->move($destinationPath, $file->getClientOriginalName());
+
+        //url imagen
+        $urlimagen = $file->getClientOriginalName();
+
+        $datos['imagen_url'] = $urlimagen;
+
+        $noticia = $this->noticiaRepo->nuevoNoticiaGCM($datos);
+
+        $this->sendMessageAll($noticia);
+
+        if (count($noticia) > 0) {
+            return Redirect::to('send_message')
+                ->with('success', 'su noticia fue ingresada con exito');
+        } else {
+            return Redirect::to('/send_message')
+                ->with('error', 'hubo un error al ingresar su noticia');
+        }
+    }
+
+    public function sendMessage()
+    {
+        $datos = DB::table('gcm_users')->get();
+        return View::make('message',compact('datos'));
+    }
+
+    private function sendMessageAll($noticia)
+    {
+        $gcm = new GCM();
+        $message = array("price" => $noticia);
+
+        $totalUser = DB::table('gcm_users')->get();
+
+        foreach($totalUser as $user)
+        {
+            $registatoin_ids = array($user->gcm_regid);
+            $gcm->send_notification($registatoin_ids, $message);
+        }
+
+    }
 }

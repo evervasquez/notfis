@@ -13,6 +13,7 @@ class User extends \Eloquent implements UserInterface, RemindableInterface
         'usuario', 'clave', 'celular', 'rpm', 'email'
     ];
 
+    protected $table = 'gcm_users';
 
     public $timestamps = false;
 
