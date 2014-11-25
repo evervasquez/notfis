@@ -22,6 +22,15 @@ class NoticiaRepositorie
             ->join('tipo_noticia', 'noticias.id_tiponoticia', '=', 'tipo_noticia.id_tiponoticia')
             ->get();
 
+        foreach ($noticias as $key => $noticia) {
+                  $noticias[$key]->id_noticia = $noticia->id_noticia;
+                  $noticias[$key]->url_image = public_path()."assets/img/notiImages/".$noticia->url_image;
+                  $noticias[$key]->fecha = $noticia->fecha;
+                  $noticias[$key]->titulo = $noticia->titulo;
+                  $noticias[$key]->descripcion = $noticia->descripcion;
+
+        }
+
         return $noticias;
     }
 
