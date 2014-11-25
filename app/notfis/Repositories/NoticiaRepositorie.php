@@ -32,7 +32,7 @@ class NoticiaRepositorie
         $noticia->url_image = $datos['imagen_url'];
         $noticia->titulo = $datos['titulo'];
         $noticia->descripcion = $datos['descripcion'];
-        $noticia->descripcion = Carbon::now();
+        $noticia->fecha = Carbon::now();
 
         if ($noticia->save()) {
 
