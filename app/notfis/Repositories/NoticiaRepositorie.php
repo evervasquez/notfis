@@ -24,7 +24,7 @@ class NoticiaRepositorie
 
         foreach ($noticias as $key => $noticia) {
                   $noticias[$key]->id_noticia = $noticia->id_noticia;
-                  $noticias[$key]->url_image = "http://".$_SERVER['SERVER_NAME']."\assets\img\notiImages\".$noticia->url_image;
+                  $noticias[$key]->url_image = "http://".$_SERVER['SERVER_NAME']."/assets/img/notiImages/".$noticia->url_image;
                   $noticias[$key]->fecha = $noticia->fecha;
                   $noticias[$key]->titulo = $noticia->titulo;
                   $noticias[$key]->descripcion = $noticia->descripcion;
