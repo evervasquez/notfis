@@ -37,7 +37,7 @@ class NoticiasController extends \BaseController
         $datos['imagen_url'] =  "http://".$_SERVER['SERVER_NAME']."/assets/img/notiImages/".$urlimagen;;
 
         $noticia = $this->noticiaRepo->nuevoNoticiaGCM($datos);
-        
+
         $this->sendMessageAll($noticia);
 
         if (count($noticia) > 0) {
