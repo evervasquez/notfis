@@ -34,7 +34,7 @@ class NoticiasController extends \BaseController
         //url imagen
         $urlimagen = $file->getClientOriginalName();
 
-        $datos['imagen_url'] =  "http://".$_SERVER['SERVER_NAME']."/assets/img/notiImages/".$urlimagen;;
+        $datos['imagen_url'] =  $urlimagen;
 
         $noticia = $this->noticiaRepo->nuevoNoticiaGCM($datos);
 
