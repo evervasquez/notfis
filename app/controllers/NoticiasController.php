@@ -34,8 +34,9 @@ class NoticiasController extends \BaseController
         //url imagen
         $urlimagen = $file->getClientOriginalName();
 
-        $datos['imagen_url'] =  "http://".$_SERVER['SERVER_NAME']."/assets/img/notiImages/".$urlimagen;
-
+        // $datos['imagen_url'] =  "http://".$_SERVER['SERVER_NAME']."/assets/img/notiImages/".$urlimagen;
+        $datos['imagen_url'] =  "http://192.168.1.41/notfis/public/assets/img/notiImages/".$urlimagen;
+		
         $noticia = $this->noticiaRepo->nuevoNoticiaGCM($datos);
 
         $this->sendMessageAll($noticia);
