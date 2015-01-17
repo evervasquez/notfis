@@ -17,10 +17,13 @@ class NoticiaRepositorie
 
     public function selectAll()
     {
+            
         $noticias = \DB::table('noticias')
-            ->select('noticias.id_noticia', 'noticias.url_image', 'noticias.fecha', 'noticias.titulo', 'tipo_noticia.descripcion')
+            ->select('noticias.id_noticia', 'noticias.url_image', 'noticias.fecha', 'noticias.titulo', 'noticias.descripcion as noticia','tipo_noticia.descripcion')
             ->join('tipo_noticia', 'noticias.id_tiponoticia', '=', 'tipo_noticia.id_tiponoticia')
+            ->orderBy('noticias.fecha','desc')
             ->get();
+
 
         foreach ($noticias as $key => $noticia) {
                   $noticias[$key]->id_noticia = $noticia->id_noticia;
@@ -28,9 +31,9 @@ class NoticiaRepositorie
                   $noticias[$key]->fecha = $noticia->fecha;
                   $noticias[$key]->titulo = $noticia->titulo;
                   $noticias[$key]->descripcion = $noticia->descripcion;
-
+                  $noticias[$key]->noticia = $noticia->noticia;
         }
-
+        
         return $noticias;
     }
 
@@ -47,9 +50,21 @@ class NoticiaRepositorie
 
             $idmax = \DB::table('noticias')
                 ->max('id_noticia');
-            return \DB::table('noticias')->where('id_noticia', '=', $idmax)->get();
+                return $this->getNoticia($idmax);
+            // return \DB::table('noticias')->where('id_noticia', '=', $idmax)->get();
         } else {
             return null;
         }
+    }
+
+    public function getNoticia($idmax){
+        $noticias = \DB::table('noticias')
+            ->select('noticias.id_noticia', 'noticias.url_image', 'noticias.fecha', 'noticias.titulo', 'noticias.descripcion as noticia','tipo_noticia.descripcion')
+            ->join('tipo_noticia', 'noticias.id_tiponoticia', '=', 'tipo_noticia.id_tiponoticia')
+            ->orderBy('noticias.fecha','desc')
+            ->where('id_noticia', '=', $idmax)
+            ->get();
+
+            return $noticias;
     }
 } 
