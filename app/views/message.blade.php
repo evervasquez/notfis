@@ -5,6 +5,7 @@
     <title>Document</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
@@ -22,14 +23,14 @@
                 <div class="form-group">
                     <label for="ejemplo_email_1">Título</label>
                     <input type="text" class="form-control" autofocus id="titulo" name="titulo"
-                           placeholder="Introduce Título">
+                           placeholder="Introduce Título" required>
                     <input type="hidden" name="regId" value="{{$datos[0]->gcm_regid}}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="categoria_id">Categoria</label>
-                    <select class="form-control" name="categoria_id" id="categoria_id">
-                        <option value="0">Seleccione...</option>
+                    <select required="required"  class="form-control" name="categoria_id" id="categoria_id" >
+                        <option value="">Seleccione...</option>
                         <option value="1">Evento</option>
                         <option value="2">Curso</option>
                         <option value="3">Taller</option>
@@ -41,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="ejemplo_archivo_1">Descripción de la noticia</label>
-                    <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
+                    <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-default">Enviar</button>
             {{ Form::close() }}

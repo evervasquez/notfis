@@ -21,9 +21,8 @@ class NoticiaRepositorie
         $noticias = \DB::table('noticias')
             ->select('noticias.id_noticia', 'noticias.url_image', 'noticias.fecha', 'noticias.titulo', 'noticias.descripcion as noticia','tipo_noticia.descripcion')
             ->join('tipo_noticia', 'noticias.id_tiponoticia', '=', 'tipo_noticia.id_tiponoticia')
-            ->orderBy('noticias.fecha','desc')
+            ->orderBy('noticias.id_noticia','desc')
             ->get();
-
 
         foreach ($noticias as $key => $noticia) {
                   $noticias[$key]->id_noticia = $noticia->id_noticia;
